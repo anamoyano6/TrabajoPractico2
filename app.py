@@ -20,7 +20,7 @@ class Persona(db.Model):
 
 #Agregar 
 @app.route('/personas', methods=['POST'])
-def agregar_persona():
+def agregarPersona():
     data = request.get_json()
     nueva_persona = Persona(
         nombre=data['nombre'], 
