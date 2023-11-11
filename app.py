@@ -17,7 +17,7 @@ class Persona(db.Model):
         self.apellido = apellido
         self.direccion = direccion
         self.dni = dni
-        
+
 #Agregar 
 @app.route('/personas', methods=['POST'])
 def agregar_persona():
@@ -31,6 +31,7 @@ def agregar_persona():
     db.session.add(nueva_persona)
     db.session.commit()
     return jsonify({'message': 'Se agrego una persona'}), 200
+
 #Listar
 @app.route('/personas', methods=['GET'])
 def listaPersona():
@@ -42,6 +43,7 @@ def listaPersona():
         'dni': persona.dni}
         for persona in personas]
     return jsonify(personas_json), 200
+
  #Buscar
 @app.route('/personas/buscar', methods=['POST'])
 def buscarPersona():
@@ -56,6 +58,7 @@ def buscarPersona():
                             'dni': persona.dni})
             return jsonify(persona_json), 200
         return jsonify({'message':'No se encontro la persona'}),404
+    
 #Modificar
 @app.route('/personas', methods=['PUT'])
 def ModificarPersona():
@@ -70,6 +73,7 @@ def ModificarPersona():
             db.session.commit()
             return jsonify({'message':'Se modifico correctamente'}), 200
         return jsonify({'message':'No se encontro a la persona'}), 404
+    
 #Eliminar
 @app.route('/personas/<dni>', methods=['DELETE'])
 def eliminarPersona(dni):
@@ -79,7 +83,6 @@ def eliminarPersona(dni):
         db.session.commit()
         return jsonify({'message':'Se elimino correctamente'}), 200
     return jsonify({'message': 'No se encontro a la persona'}), 404
-
        
 if __name__ == '__main__':
     with app.app_context(): 
