@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 11-11-2023 a las 00:38:20
+-- Tiempo de generación: 11-11-2023 a las 01:07:20
 -- Versión del servidor: 10.4.28-MariaDB
 -- Versión de PHP: 8.2.4
 
@@ -18,16 +18,16 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Base de datos: `persona1`
+-- Base de datos: `persona`
 --
 
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `newtable`
+-- Estructura de tabla para la tabla `persona`
 --
 
-CREATE TABLE `newtable` (
+CREATE TABLE `persona` (
   `id` int(11) NOT NULL,
   `nombre` varchar(20) NOT NULL,
   `apellido` varchar(20) NOT NULL,
@@ -40,20 +40,21 @@ CREATE TABLE `newtable` (
 --
 
 --
--- Indices de la tabla `newtable`
+-- Indices de la tabla `persona`
 --
-ALTER TABLE `newtable`
-  ADD PRIMARY KEY (`id`);
+ALTER TABLE `persona`
+  ADD PRIMARY KEY (`id`),
+  ADD UNIQUE KEY `dni` (`dni`);
 
 --
 -- AUTO_INCREMENT de las tablas volcadas
 --
 
 --
--- AUTO_INCREMENT de la tabla `newtable`
+-- AUTO_INCREMENT de la tabla `persona`
 --
-ALTER TABLE `newtable`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+ALTER TABLE `persona`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
